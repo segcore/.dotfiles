@@ -15,5 +15,5 @@ fi
 source "${bash_location/\~/$HOME}"
 
 ln -sT ~/.dotfiles/git/ ~/.config/git
-ln -sT ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
+ln -sT ~/.dotfiles/tmux ~/.config/tmux
 
