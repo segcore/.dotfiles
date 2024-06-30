@@ -14,6 +14,10 @@ fi
 # Needs a manual pathname expansion for ~
 source "${bash_location/\~/$HOME}"
 
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 ln -sT ~/.dotfiles/git/ ~/.config/git
 ln -sT ~/.dotfiles/tmux ~/.config/tmux
 
