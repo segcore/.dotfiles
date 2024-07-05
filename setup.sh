@@ -3,6 +3,11 @@
 # For this repo
 git config user.name segcore
 git config user.email segcore@github.com
+# If none globally, add it globally
+if ! git config --global user.name; then
+	git config --global user.name "`git config user.name`"
+	git config --global user.email "`git config user.email`"
+fi
 
 mkdir -p ~/.config
 
