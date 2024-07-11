@@ -20,6 +20,3 @@
 	ff = only
 [rebase]
 	autoStash = true
-[user]
-	name = segcore
-	email = segcore@github.com
