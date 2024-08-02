@@ -12,6 +12,10 @@ alias bat='batcat --theme Coldark-Cold'
 alias delta='delta --syntax-theme=gruvbox-light'
 alias human='numfmt --to=si'
 
+alias gd='git diff'
+alias gds='git diff --staged'
+alias d='delta'
+
 # Get ancestor build directory
 bdir() {
     pwd | sed 's#\(/build[^/]*\)/.*#\1#'
