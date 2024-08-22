@@ -16,11 +16,15 @@ alias gd='git diff'
 alias gds='git diff --staged'
 alias d='delta'
 
+# Open man pages inside neovim by default. Use `env man` to use the default one.
+man() { { echo ":only" | nvim "+Man $1 $2 $3 $4 $5" -s - ; } || env man "$@"; }
+
 # Get ancestor build directory
 bdir() {
     pwd | sed 's#\(/build[^/]*\)/.*#\1#'
 }
 alias cb='cmake --build `bdir` --parallel'
+alias cbb='cmake --build'
 
 function ask() {
     echo "   $@"
