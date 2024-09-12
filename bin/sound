@@ -1,0 +1,11 @@
+#!/bin/bash
+word="$1"
+if [ -z "$word" ]; then
+    select word in steam normal; do break; done
+fi
+if [ "$word" == "steam" ]; then
+    mv -v ~/.asoundrc.bak ~/.asoundrc
+fi
+if [ "$word" == "normal" ]; then
+    mv -v ~/.asoundrc ~/.asoundrc.bak
+fi
