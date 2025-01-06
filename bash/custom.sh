@@ -1,5 +1,6 @@
 export EDITOR=nvim
 export CMAKE_GENERATOR=Ninja
+export NINJA_STATUS="[%f/%t, %e] "
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.dotfiles/bin"
 
@@ -8,12 +9,16 @@ PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\W  \$(dirname '\w')\a\]$PS1"
 
 alias nvim='PATH="$(build_path.lua)" nvim'
 alias vim='nvim'
-alias bat='batcat --theme Coldark-Cold'
+if command batcat --version &> /dev/null ; then
+    alias bat='batcat'
+fi
 alias delta='delta --syntax-theme=gruvbox-light'
 alias human='numfmt --to=si'
 
 alias gd='git diff'
+alias gdd='git diff | delta'
 alias gds='git diff --staged'
+alias gdds='git diff --staged | delta'
 alias d='delta'
 
 # Open man pages inside neovim by default. Use `env man` to use the default one.
