@@ -16,9 +16,11 @@ alias delta='delta --syntax-theme=gruvbox-light'
 alias human='numfmt --to=si'
 
 alias gd='git diff'
+alias gs='git status'
 alias gdd='git diff | delta'
 alias gds='git diff --staged'
 alias gdds='git diff --staged | delta'
+alias gss='git diff --staged | delta -d'
 alias d='delta'
 
 # Open man pages inside neovim by default. Use `env man` to use the default one.
@@ -40,7 +42,7 @@ function ask() {
 }
 
 function prune() {
-    local branches="$(git branch -v | awk '/\w+\s+\w+.* \[gone\]/ { print $1 }')"
+    local branches="$(git branch -v | awk '/^  .* [[:xdigit:]]+ \[gone\]/ { print $1 }')"
     if [ -n "$branches" ]; then
         ask git branch -d $branches
     fi
