@@ -17,10 +17,11 @@ alias human='numfmt --to=si'
 
 alias gd='git diff'
 alias gs='git status'
+alias gw='git worktree'
 alias gdd='git diff | delta'
 alias gds='git diff --staged'
 alias gdds='git diff --staged | delta'
-alias gss='git diff --staged | delta -d'
+alias gss='git diff --staged | delta -s'
 alias d='delta'
 
 # Open man pages inside neovim by default. Use `env man` to use the default one.
