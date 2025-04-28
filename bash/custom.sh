@@ -48,3 +48,7 @@ function prune() {
         ask git branch -d $branches
     fi
 }
+
+function faketty() {
+    script -qefc "$(printf "%q " "$@")" /dev/null
+}
