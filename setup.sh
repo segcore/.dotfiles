@@ -4,7 +4,7 @@
 git config user.name segcore
 git config user.email segcore@github.com
 # If none globally, add it globally
-if ! git config --global user.name; then
+if ! git config --global user.name > /dev/null; then
 	git config --global user.name "`git config user.name`"
 	git config --global user.email "`git config user.email`"
 fi
@@ -23,6 +23,7 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-ln -sT ~/.dotfiles/git/ ~/.config/git
-ln -sT ~/.dotfiles/tmux ~/.config/tmux
+ln -svT ~/.dotfiles/git/ ~/.config/git
+ln -svT ~/.dotfiles/tmux ~/.config/tmux
+ln -svT ~/.dotfiles/kitty ~/.config/kitty
 

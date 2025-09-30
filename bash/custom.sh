@@ -14,6 +14,7 @@ if command batcat --version &> /dev/null ; then
 fi
 alias delta='delta --syntax-theme=gruvbox-light'
 alias human='numfmt --to=si'
+alias readelf='readelf -W'
 
 alias gd='git diff'
 alias gs='git status'
