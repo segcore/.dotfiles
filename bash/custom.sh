@@ -3,6 +3,7 @@ export CMAKE_GENERATOR=Ninja
 export NINJA_STATUS="[%f/%t, %e] "
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.dotfiles/bin"
+export LSAN_OPTIONS="suppressions=$HOME/.dotfiles/bash/leak-sanizer.ignore"
 
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[0;33m\]$(__git_ps1 " (🌿 %s)")\[\033[00m\]\$ '
 PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\W  \$(dirname '\w')\a\]$PS1"
