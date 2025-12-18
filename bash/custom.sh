@@ -8,6 +8,9 @@ export LSAN_OPTIONS="suppressions=$HOME/.dotfiles/bash/leak-sanizer.ignore"
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[0;33m\]$(__git_ps1 " (🌿 %s)")\[\033[00m\]\$ '
 PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\W  \$(dirname '\w')\a\]$PS1"
 
+# Turn off xon/xoff flow control, to allow bash/readline forward search with C-s
+[[ $- == *i* ]] && stty -ixon
+
 alias nvim='PATH="$(build_path.lua)" nvim'
 alias vim='nvim'
 if command batcat --version &> /dev/null ; then
