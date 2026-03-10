@@ -2,7 +2,7 @@
 
 # For this repo
 git config user.name segcore
-git config user.email segcore@github.com
+git config user.email 44293604+segcore@users.noreply.github.com
 # If none globally, add it globally
 if ! git config --global user.name > /dev/null; then
 	git config --global user.name "`git config user.name`"
@@ -21,6 +21,9 @@ source "${bash_location/\~/$HOME}"
 
 if [ ! -d ~/.tmux/plugins/tpm ]; then
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+if [ ! -d ~/.config/tmux/plugins/catppuccin/tmux ]; then
+	git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 fi
 
 ln -svT ~/.dotfiles/git/ ~/.config/git
