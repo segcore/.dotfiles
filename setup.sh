@@ -23,7 +23,7 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 if [ ! -d ~/.config/tmux/plugins/catppuccin/tmux ]; then
-	git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+	git clone -b v0.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 fi
 
 ln -svT ~/.dotfiles/git/ ~/.config/git
