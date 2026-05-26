@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+target="modbus"
+dir="$HOME/p/modbus"
+
+if ! tmux has-session -t "$target"; then
+    tmux new-session -d -c "$dir" -s "$target" -n nvim
+    tmux new-window -c "$dir" -t "$target:" -n tcp-server -d
+    tmux new-window -c "$dir" -t "$target:" -n serial-server
+    tmux new-window -c "$dir" -t "$target:" -n pty -d
+
+    tmux send-keys -t "$target:nvim" "nvim" Enter
+    tmux send-keys -t "$target:pty" "rm s0 s1; build/other/pty/pty" Enter
+    tmux send-keys -t "$target:tcp-server" "build/examples/server" Enter
+    tmux send-keys -t "$target:serial-server" "sleep 0.5" Enter "build/examples/server2 -v -s s1" Enter
+
+    tmux select-window -t "$target:nvim"
+fi
+
+if [ -z "$TMUX" ]; then
+    tmux attach -t "$target"
+else
+    tmux switch-client -t "$target"
+fi
